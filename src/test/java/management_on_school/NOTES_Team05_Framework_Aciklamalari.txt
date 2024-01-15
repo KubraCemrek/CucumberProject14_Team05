@@ -49,7 +49,30 @@
     4) Github Manager tarafindan Github'ta projeye ait token alinacak (1kez yapilir)
 
     5) GitHub islemleri sirasinda, hazirlanmis olan Github Dokumani takip edilir
-    --> Rutin adimlar kisaca buraya da eklenebilir
+        --> Rutin adimlar
+        --> Projeyi Clone'la ve Kendi Branch ini  olustur
+
+                1.adim: kendi branch gec
+                           code yazim-calismalar
+
+                 2.adim : commit
+                          xml,txt gibi sayfalari sec--> rollback yap. Commit yapma
+                          calistiginiz class sec --> Aciklama notu ekle --> Commit tikla  --> commit basarisiz mesajini ignore et
+
+                3.adim: Master brancha gec Pull yap;
+                         Menu - Git - Pull  --> tikla
+
+                4.adim: kendi branch gec Merge yap;
+                        Menu - Git - Merge --> origin/master --> sec--> Merge tikla
+                         !!!  Conflict VAR ise--> gelen ekranda satir uzerine cift tikla
+                                "remote" sag kisimdaki git'ten gelen tum codelari <<< isatetine tikla orta alana "result" kismina al
+                                "Your local"sol kisim size ait olan local codlari >>> isaretine tikla orta alana "result" kismina al - gereksiz code ise X ile sil
+                                -->  APPLY -- tikla
+
+                         !!!  Conflict YOK ise--> Push yapin ==> 5.adim
+
+                5.Adim: kendi branch devam--> Push et
+                        Menu - Git - Push --> "Push Anyway" tikla
 
 
 
