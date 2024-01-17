@@ -1,6 +1,11 @@
 package management_on_school.pages;
 
+import management_on_school.utilities.ConfigReader;
 import management_on_school.utilities.Driver;
+import management_on_school.utilities.ReusableMethods;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
@@ -22,11 +27,6 @@ public class ViceDeanPage {
     public ViceDeanPage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
-
-
-
-
-
 
 
 
@@ -198,57 +198,57 @@ public class ViceDeanPage {
 
 
     //Salih Kaygusuz (200)
+    public void performLoginVD() {
+        Actions actions=new Actions(Driver.getDriver());
+        Driver.getDriver().get(ConfigReader.getProperty("manage_Url"));
+        ReusableMethods.waitForSecond(3);
+        homePageLoginLinkVD_ST.click();
+        userNameButtonVD_ST.sendKeys("gakky87VD");
+        PasswordButtonVD_ST.sendKeys("Cavabunga82");
+        homePageLoginButtonVD_ST.click();
 
 
 
+    }
+    @FindBy(xpath = "//a[@class='header_link ms-2']")         public WebElement homePageLoginLinkVD_ST;
+    @FindBy(xpath = "//input[@id='username']")         public WebElement userNameButtonVD_ST;
+    @FindBy(xpath = "//input[@id='password']")         public WebElement PasswordButtonVD_ST;
+    @FindBy(xpath = "//button[normalize-space()='Login']")         public WebElement loginPageLoginButtonVD_ST;
+    @FindBy(xpath = "//button[normalize-space()='Menu']")
+    public WebElement PageMenuButtonVD_ST;
+    @FindBy(xpath = "//a[normalize-space()='Student Management']")
+    public WebElement mainMenuStudentManagementButtonVD_ST;
+    @FindBy(xpath = "//select[@id='advisorTeacherId']")         public WebElement advisorTeacherDropDownButtonVD_ST;
+    @FindBy(id = "name")         public WebElement studentMngNamenBoxVD_ST;
+    @FindBy(id = "surname")         public WebElement studentMngSurnamenBoxVD_ST;
+    @FindBy(id = "birthPlace")         public WebElement studentMngBPlaceBoxVD_ST;
+    @FindBy(id = "email")         public WebElement studentMngemailBoxVD_ST;
+    @FindBy(id = "phoneNumber")         public WebElement studentMngPhoneBoxVD_ST;
+    @FindBy(id = "ssn")         public WebElement studentMngSsnBoxVD_ST;
+    @FindBy(id = "username")         public WebElement studentMngUserNameBoxVD_ST;
+    @FindBy(id = "fatherName")         public WebElement studentMngFatherNameBoxVD_ST;
+    @FindBy(id = "motherName")         public WebElement studentMngMotherNameBoxVD_ST;
+    @FindBy(id = "password")         public WebElement studentMngPasswordBoxVD_ST;
+    @FindBy(xpath = "//input[@value='MALE']")         public WebElement studentMngGenderMaleButtonVD_ST;
+    @FindBy(xpath = "//input[@value='FEMALE']")         public WebElement studentMngGenderFeMaleButtonVD_ST;
+
+    @FindBy(xpath = "//div[contains(text(),'Student saved Successfully')]")         public WebElement studentMngSuccessfullyVD_ST;
+    @FindBy(xpath = "//button[normalize-space()='Submit']")         public WebElement studentMngSubmitButtonVD_ST;
+    @FindBy(xpath = "//div[normalize-space()='Required']")         public WebElement studentMngNameRequiredTesxtVD_ST;
+    @FindBy(css = "div[role='alert'] div:nth-child(2)")         public WebElement studentMngPleaseEnterValidEmailTesxtVD_ST;
+    @FindBy(xpath = "//div[contains(text(),'You have entered an invalid value. Valid values ar')]")         public WebElement studentMngGenderIvalidValueTesxtVD_ST;
+    @FindBy(id = "birthDay")         public WebElement studentMngBirthdayBoxVD_ST;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @FindBy(xpath = "//div[normalize-space()='Minimum 11 character (XXX-XX-XXXX)']")         public WebElement studentMngSsnInvalidValueTextVD_ST;
+    @FindBy(xpath = "//div[3]//div[2]//div[1]//div[1]")         public WebElement studentMngUserNameInvalidValueTextVD_ST;
+    @FindBy(xpath = "//div[normalize-space()='At least 8 characters']")         public WebElement studentMngPas8CaharcterInvalidValueTextVD_ST;
+    @FindBy(xpath = "//div[normalize-space()='One uppercase character']")         public WebElement studentMngPasUpperCaseInvalidValueTextVD_ST;
+    @FindBy(xpath = "//div[normalize-space()='One lowercase character']")         public WebElement studentMngPasLowerCaseInvalidValueTextVD_ST;
+    @FindBy(xpath = "//div[normalize-space()='One number']")         public WebElement studentMngPasOneNumberInvalidValueTextVD_ST;
+    @FindBy(xpath = "//button[normalize-space()='Login']")         public WebElement homePageLoginButtonVD_ST;
+    @FindBy(xpath = "//a[normalize-space()='Logout']")         public WebElement logoutVD_ST;
 
 
 
