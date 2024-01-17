@@ -21,8 +21,6 @@ import org.openqa.selenium.support.PageFactory;
 
 
 
-
-
 public class ViceDeanPage {
     public ViceDeanPage() {
         PageFactory.initElements(Driver.getDriver(),this);
@@ -398,13 +396,18 @@ public class ViceDeanPage {
 
 
     //Kubra Cemrek (400)
-
-
-
-
-
-
-
+    @FindBy(css = ".header_link.ms-2") public WebElement loginBtnHomeKubraC;
+    @FindBy(id= "username") public WebElement userNameKubraC;
+    @FindBy(id= "password") public WebElement passwordKubraC;
+    @FindBy(css= ".fw-semibold.btn.btn-primary") public WebElement loginButtonKubraC;
+    @FindBy(id= "controlled-tab-example-tab-lessonProgram") public WebElement lessonProgramKubraC;
+    @FindBy(xpath= "(//tr)[33]") public WebElement lessonProgramListKubraC;
+    @FindBy(css = ".css-13cymwt-control") public WebElement chooseLessonKubraC;
+    @FindBy(id = "educationTermId") public WebElement eduTimeKubraC;
+    @FindBy(id = "day") public WebElement chooseDayKubraC;
+    @FindBy(id = "startTime") public WebElement startTimeKubraC;
+    @FindBy(id = "stopTime") public WebElement stopTimeKubraC;
+    @FindBy(css = "(//button[@class='fw-semibold btn btn-primary btn-lg'])[3]") public WebElement submitKubraC;
 
 
 
