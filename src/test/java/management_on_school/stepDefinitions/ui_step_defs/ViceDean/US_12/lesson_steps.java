@@ -7,7 +7,11 @@ import management_on_school.pages.ViceDeanPage;
 import management_on_school.utilities.ConfigReader;
 import management_on_school.utilities.Driver;
 import management_on_school.utilities.ReusableMethods;
+import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
+
+import java.security.Key;
 
 public class lesson_steps {
 
@@ -47,21 +51,38 @@ public class lesson_steps {
 
     @When("From the Add Course section select Select Course Education Period Select Day Start Time End Time")
     public void From_the_Add_Course_section_select_Select_Course_Education_Period_Select_Day_Start_Time_End_Time(){
-        ReusableMethods.ddmIndex(viceDeanPage.chooseLessonKubraC,1);
+        viceDeanPage.chooseLessonClickKubraC.click();
+        viceDeanPage.chooseLessonClickKubraC.sendKeys("Cypress" + Keys.ENTER);
         ReusableMethods.ddmIndex(viceDeanPage.eduTimeKubraC,2);
         ReusableMethods.ddmIndex(viceDeanPage.chooseDayKubraC,3);
-        //ReusableMethods.ddmIndex(viceDeanPage.);
-
+        viceDeanPage.startTimeKubraC.sendKeys("0909AM");
+        viceDeanPage.stopTimeKubraC.sendKeys("1010AM" + Keys.TAB + Keys.ENTER);
 }
 
-    @When("Click on the Submit button")
-    public void Click_on_the_Submit_button(){
+    @Then("User can see that the created lesson")
+    public void User_can_see_that_the_created_lesson(){
+        ReusableMethods.waitForVisibleElement(viceDeanPage.verifyCreatedLessonKubraC, 1);
+        Assert.assertTrue("ders ekleme başarısız", viceDeanPage.verifyCreatedLessonKubraC.isDisplayed());
+    }
 
-}
-
-    @Then("User can see that the created lesson is in the Choose Lesson section")
-    public void User_can_see_that_the_created_lesson_is_in_the_Choose_Lesson_section(){
-
+    @When("select the new lesson")
+    public void select_the_new_lesson() throws InterruptedException {
+        Thread.sleep(3000);
+        viceDeanPage.selectLessonKubraC.sendKeys(Keys.SPACE);
+    }
+    @When("select the teacher")
+    public void select_the_teacher() throws InterruptedException {
+        ReusableMethods.ddmIndex(viceDeanPage.selectTeacherKubraC, 3);
+        Thread.sleep(3000);
+    }
+    @When("clicks on submit button")
+    public void clicks_on_submit_button() {
+        viceDeanPage.submitTeacherKubraC.click();
+    }
+    @Then("verify assign the lesson")
+    public void verify_assign_the_lesson() {
+        ReusableMethods.waitForVisibleElement(viceDeanPage.verifyAddedTeacKubraC, 1);
+        Assert.assertTrue("ders ekleme başarısız", viceDeanPage.verifyAddedTeacKubraC.isDisplayed());
     }
 
 }
