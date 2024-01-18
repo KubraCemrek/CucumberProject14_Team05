@@ -402,12 +402,16 @@ public class ViceDeanPage {
     @FindBy(css= ".fw-semibold.btn.btn-primary") public WebElement loginButtonKubraC;
     @FindBy(id= "controlled-tab-example-tab-lessonProgram") public WebElement lessonProgramKubraC;
     @FindBy(xpath= "(//tr)[33]") public WebElement lessonProgramListKubraC;
-    @FindBy(css = ".css-13cymwt-control") public WebElement chooseLessonKubraC;
+    @FindBy(id = "react-select-2-input") public WebElement chooseLessonClickKubraC;
     @FindBy(id = "educationTermId") public WebElement eduTimeKubraC;
     @FindBy(id = "day") public WebElement chooseDayKubraC;
     @FindBy(id = "startTime") public WebElement startTimeKubraC;
     @FindBy(id = "stopTime") public WebElement stopTimeKubraC;
-    @FindBy(css = "(//button[@class='fw-semibold btn btn-primary btn-lg'])[3]") public WebElement submitKubraC;
+    @FindBy(xpath = "(//input[@id = 'lessonProgramId'])[1]") public WebElement selectLessonKubraC;
+    @FindBy(id = "teacherId") public WebElement selectTeacherKubraC;
+    @FindBy(xpath = "(//button[@class = 'fw-semibold btn btn-primary btn-lg'])[4]") public WebElement submitTeacherKubraC;
+    @FindBy(xpath = "//div[text() = 'Lesson added to Teacher']") public WebElement verifyAddedTeacKubraC;
+    @FindBy(xpath = "//div[text() = 'Created Lesson Program']") public WebElement verifyCreatedLessonKubraC;
 
 
 
