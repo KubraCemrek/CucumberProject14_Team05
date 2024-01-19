@@ -9,7 +9,7 @@ public class login_steps {
     ViceDeanPage viceDeanPage = new ViceDeanPage();
 
 
-    @Given("User enters the home page")
+    @Given("User enters the home page_k")
     public void kullaniciWebSitesineGirer() {
         Driver.getDriver().get(ConfigReader.getProperty("manage_Url"));
     }
@@ -20,17 +20,17 @@ public class login_steps {
         viceDeanPage.loginBtnHomeKubraC.click();
     }
 
-    @When("User enters User Name {string}")
+    @When("User enters User Name {string} _k")
     public void user_enters_user_name(String userName) {
         viceDeanPage.userNameKubraC.sendKeys(userName);
     }
 
-    @When("User enters Password {string}")
+    @When("User enters Password {string} _k")
     public void user_enters_password(String password) {
     viceDeanPage.passwordKubraC.sendKeys(password);
     }
 
-    @When("User clicks the Login button")
+    @When("User clicks the Login button_k")
     public void user_clicks_the_login_button() {
     ReusableMethods.waitForVisibleElement(viceDeanPage.loginButtonKubraC,5);
     viceDeanPage.loginButtonKubraC.click();
