@@ -596,33 +596,33 @@ public class AdminPage {
 
 
     // Halil Uslu (600)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @FindBy(xpath = "//*[@href='/login']") public WebElement loginLink_hu;
+    @FindBy(xpath = "//button[text()='Menu']") public WebElement menuButton_hu;
+    @FindBy(xpath = "//a[text()='Teacher Management']") public WebElement teacherManagementButton_hu;
+    @FindBy(xpath = "//div[@class=' css-1xc3v61-indicatorContainer']") public WebElement selectLesson_ok_hu;
+    @FindBy(xpath = "//div[contains(@class,'css-19bb58m')]") public WebElement selectLesson_hu;
+    @FindBy(xpath = "//div[@class=' css-9jq23d']") public WebElement javaScript_hu;
+    @FindBy(xpath = "//input[@id='name']") public WebElement name_hu;
+    @FindBy(xpath = "//input[@id='surname']") public WebElement surName_hu;
+    @FindBy(xpath = "//input[@id='birthPlace']") public WebElement birthPlace_hu;
+    @FindBy(xpath = "//input[@id='email']") public WebElement email_hu;
+    @FindBy(xpath = "//input[@id='phoneNumber']") public WebElement phoneNumber_hu;
+    @FindBy(xpath = "//input[@id = 'isAdvisorTeacher']") public WebElement isAdvisorTeacher_hu;
+    @FindBy(xpath = "//input[@value='FEMALE']") public WebElement femaleButton_hu;
+    @FindBy(xpath = "//input[@value='MALE']") public WebElement maleButton_hu;
+    @FindBy(xpath = "//input[@id = 'birthDay']") public WebElement birthDay_hu;
+    @FindBy(xpath = "//input[@id = 'ssn']") public WebElement ssnBox_hu;
+    @FindBy(xpath = "//input[@id = 'username']") public WebElement usernameBox_hu;
+    @FindBy(xpath = "//input[@id = 'password']") public WebElement passwordBox_hu;
+    @FindBy(xpath = "//button[@class='fw-semibold btn btn-primary btn-lg']") public WebElement SubmitButton_hu;
+    @FindBy(xpath = "//button[@class='fw-semibold btn btn-primary']") public WebElement loginButton_hu;
+    @FindBy(xpath = "//a[text()='Dean Management']") public WebElement deanManagementButton_hu;
+    @FindBy(xpath ="//div[contains(text(),'Teacher saved successfully')]") public WebElement SavedPopUp_hu;
+    @FindBy(xpath = "//input[@role='combobox']") public WebElement chooseLesson_hu;
+    @FindBy(xpath = "//div[normalize-space()='At least 8 characters']") public WebElement AtLeast8Characters_hu;
+    @FindBy(xpath = "//div[normalize-space()='One uppercase character']") public WebElement OneUppercaseCharacter_hu;
+    @FindBy(xpath = "//div[normalize-space()='One lowercase character']") public WebElement OneLowercaseCharacter_hu;
+    @FindBy(xpath = "//div[normalize-space()='One number']") public WebElement OneNumber_hu;
 
 
 
