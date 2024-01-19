@@ -14,7 +14,7 @@ public class login_steps {
         Driver.getDriver().get(ConfigReader.getProperty("manage_Url"));
     }
 
-    @When("User clicks Login")
+    @When("User clicks Login_k")
     public void kullanici_login_e_tiklar() {
         ReusableMethods.waitForVisibleElement(viceDeanPage.loginBtnHomeKubraC, 5);
         viceDeanPage.loginBtnHomeKubraC.click();
