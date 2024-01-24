@@ -86,6 +86,17 @@ public class AddDeanPage {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
     // Duygu Jones (100)
     //--> Dean Management Page
     @FindBy(xpath = "//h5[.='Dean List']")   public WebElement deanListTitleDj;
@@ -122,17 +133,6 @@ public class AddDeanPage {
     @FindBy(xpath="(//div[@class='invalid-feedback'])[1]")  public WebElement nameRequiredPopupDj;  //name required text locate
     @FindBy(xpath="//div[@class='Toastify__toast-body']/div[.='Please enter valid SSN number']")  public WebElement ssnRequiredPopupDj;
     @FindBy(xpath="(//div[@class='invalid-feedback'])[8]")  public WebElement unValidPasswordDj;
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -298,14 +298,14 @@ public class AddDeanPage {
 
 
     //Yakup Aydin (300)
-
-
-
-
-
-
-
-
+    @FindBy(xpath = "//a[@href='/login']") public WebElement deanloginLinkYakup;
+    @FindBy(id = "username") public WebElement deanusernameBoxYakup;
+    @FindBy(id = "password") public WebElement deanpasswordBoxYakup;
+    @FindBy(xpath = "//button[@class='fw-semibold btn btn-primary']") public WebElement deanloginButtonYakup;
+    @FindBy(xpath = "//*[@class='fw-semibold text-white bg-primary navbar-toggler collapsed']") public WebElement deanMenuButton;
+    @FindBy(xpath = "//a[contains(@class, 'nav-link') and text()='Contact Get All']") public WebElement contactGetAllButton;
+    @FindBy(xpath = "//*[@class='fw-bold p-3 card-header']") public WebElement contactMessageText;
+    @FindBy(css = "tbody tr:nth-child(1) td:nth-child(4)") public WebElement undeletableMessage;
 
 
 
