@@ -49,6 +49,7 @@ public class US06_DeanShoulBeAbleToAddViceDean {
     }
 
 
+
     @And("Enters {string} into the name field.")
     public void Entersintothenamefield(String str) {
         name = faker.name().firstName();

@@ -1,4 +1,4 @@
-@US006
+@UI_US006
 Feature: US006 The Dean should be able to create a Vice Dean account.
 
   Scenario: TC01 Dean should be able to add a Vice Dean on the website.

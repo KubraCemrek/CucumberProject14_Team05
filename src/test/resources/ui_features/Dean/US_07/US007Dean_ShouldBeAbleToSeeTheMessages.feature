@@ -1,4 +1,4 @@
-@US007
+@UI_US007
   Feature: US007, Dean Kullanicilarin Gonderdigi Mesajlari Gorebilmelidir
     Scenario: TC01-Dean, mesajları, yazarlarını, e-maillerini, gönderilme tarihi ve  subject bilgilerini görüntüleyebilmelidir
       Given The website is visited.
