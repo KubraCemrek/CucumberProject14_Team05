@@ -4,7 +4,7 @@ Feature: Admin Dean Ekleyebilmeli
   Scenario: Admin Web Sitesinde Dean Ekleyebilmeli
     Given Kullanici web sitesine girer
     When Kullanici login e tiklar
-    And  Username kutusuna "AdminGurkay" girer
+    And Username kutusuna "AdminGurkay" girer
     And Password kutusuna "Gurkay123+" girer
     And Login butonuna tiklar
     And Menu butonuna tiklar
