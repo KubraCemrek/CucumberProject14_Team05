@@ -1,6 +1,8 @@
 package management_on_school.pages;
 
 import management_on_school.utilities.Driver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
@@ -21,8 +23,6 @@ public class LessonPage {
     public LessonPage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
-
-
 
 
 
@@ -499,62 +499,62 @@ public class LessonPage {
 
     //Mehmet Ergan (500)
 
+    @FindBy(xpath = "//button[@id='controlled-tab-example-tab-lessonsList']")
+    public WebElement lessonsButton_me;
 
+    @FindBy(xpath = "//input[@id='lessonName']")
+    public WebElement lessonNameBox_me;
 
+    @FindBy(xpath = "//input[@id='compulsory']")
+    public WebElement compulsoryButton_me;
 
+    @FindBy(xpath = "//input[@id='creditScore']")
+    public WebElement creditScoreBox_me;
 
+    @FindBy(xpath = "(//button[@type='button'])[9]")
+    public WebElement lessonSubmitButton_me;
 
+    @FindBy(xpath = "//*[text()='Lesson Created']")
+    public WebElement lessonCreatedAlert_me;
+    @FindBy(xpath = "//*[text()='Lesson Deleted']")
+    public WebElement lessonDeletedAlert_me;
+    @FindBy(id = "creditScore")
+    public  WebElement creditScoreText_me;
 
+    @FindBy(xpath = "//*[text()='Error: Lesson with lesson name Cypress1 already register']")
+    public WebElement lessonAlreadyCreatedAlert_me;
+    @FindBy(xpath = "(//*[text()='»'])[2]")
+    public WebElement lastPageButton_me;
+    @FindBy(xpath = "//tr[td[span[text()='Cypress1']]]//td[4]//button")
+    public WebElement lessonDeleteButton_me;
+    @FindBy(xpath = "//tr[td[span[text()='Java_1']]]//td[1]")
+    public WebElement lessonNameVerify_me;
+    @FindBy(xpath = "//tr[td[span[text()='Java_1']]]//td[2]")
+    public WebElement compulsoryVerify_me;
+    @FindBy(xpath = "//tr[td[span[text()='Java_1']]]//td[3]")
+    public WebElement creditScoreVerify_me;
 
+    @FindBy(xpath = "//*[@id='controlled-tab-example-tab-lessonProgram']")
+    public WebElement lessonProgramButton_me;
+    @FindBy(xpath = "//*[@class=' css-b62m3t-container']")
+    public WebElement chooseLesson_me;
 
+    @FindBy(xpath = "//*[@class='mb-3 form-select']")
+    public WebElement chooseDay_me;
+    @FindBy(xpath = "//*[@id='startTime']")
+    public WebElement startTime_me;
+    @FindBy(xpath = "//*[@id='stopTime']")
+    public WebElement stopTime_me;
 
+    @FindBy(xpath = "//*[text()='Created Lesson Program']")
+    public WebElement createdLProgram_me;
+    @FindBy(xpath = "//*[@id='educationTermId']")
+    public WebElement educationTerm_me;
+    @FindBy(xpath = "//*[@class='Toastify__toast-body']")
+    public WebElement errorMessage_me;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @FindBy(xpath = "(//*[@class='fw-semibold btn btn-primary btn-lg'])[3]")
+    public WebElement lessonSubmitButton2_me;
 
 
 

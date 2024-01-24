@@ -14,8 +14,8 @@ import org.junit.runner.RunWith;
                 "rerun:TestOutput/failed_scenario.txt" },
         features = "src\\test\\resources",
         glue = {"management_on_school/stepDefinitions", "management_on_school/hooks"},
-        tags = "@US23",
         dryRun = false,
+        tags = "",
         monochrome = true
 
 )
