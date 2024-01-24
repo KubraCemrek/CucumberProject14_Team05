@@ -1,12 +1,9 @@
 package management_on_school.pages;
 
 import management_on_school.utilities.Driver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-
-
-
-
 
 
 
@@ -22,6 +19,9 @@ public class ViceDeanPage {
     public ViceDeanPage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
+
+
+
 
 
 
@@ -298,6 +298,22 @@ public class ViceDeanPage {
 
 
     //Yakup Aydin (300)
+    @FindBy(xpath = "//a[@href='/login']") public WebElement loginLinkYakup;
+   @FindBy(id = "username") public WebElement usernameBoxYakup;
+    @FindBy(id = "password") public WebElement passwordBoxYakup;
+    @FindBy(xpath = "//button[@class='fw-semibold btn btn-primary']") public WebElement loginButtonYakup;
+    @FindBy(id = "name") public WebElement nameYakup;
+    @FindBy(id = "surname") public WebElement surnameYakup;
+    @FindBy(id = "birthPlace") public WebElement birthPlaceYakup;
+    @FindBy(xpath = "//input[@value='FEMALE']") public WebElement genderFemaleYakup;
+    @FindBy(xpath = "//input[@value='MALE']") public WebElement genderMaleYakup;
+    @FindBy(id = "birthDay") public WebElement birthDayYakup;
+    @FindBy(id = "phoneNumber") public WebElement phoneNumberYakup;
+    @FindBy(id = "ssn") public WebElement ssnYakup;
+    @FindBy(id = "username") public WebElement usernameYakup;
+    @FindBy(id = "password") public WebElement viceDeanPasswordYakup;
+    @FindBy(xpath ="(//div[@role='alert']//div)[2]") public WebElement viceDeanSavedPopUpYakup;
+    @FindBy (css = "button[class='fw-semibold btn btn-primary btn-lg']") public WebElement viceDeanSubmitYakup;
 
 
 

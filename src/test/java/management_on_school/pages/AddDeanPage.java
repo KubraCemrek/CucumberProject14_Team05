@@ -8,23 +8,10 @@ import org.openqa.selenium.support.PageFactory;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 public class AddDeanPage {
     public AddDeanPage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
-    @FindBy(xpath = "//*[@href='/login']") public WebElement loginLink;
-    @FindBy(xpath = "//button[text()='Menu']") public WebElement menuButton;
     @FindBy(xpath = "//a[text()='Dean Management']") public WebElement deanManagementButton;
     @FindBy(xpath = "//a[text()='Teacher Management']") public WebElement teacherManagementButton;
     @FindBy(xpath = "//a[text()='Meet Management']") public WebElement meetManagementButton;
@@ -297,10 +284,28 @@ public class AddDeanPage {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     //Yakup Aydin (300)
-
-
-
+    @FindBy(xpath = "//a[@href='/login']") public WebElement deanloginLinkYakup;
+    @FindBy(id = "username") public WebElement deanusernameBoxYakup;
+    @FindBy(id = "password") public WebElement deanpasswordBoxYakup;
+    @FindBy(xpath = "//button[@class='fw-semibold btn btn-primary']") public WebElement deanloginButtonYakup;
+    @FindBy(xpath = "//*[@class='fw-semibold text-white bg-primary navbar-toggler collapsed']") public WebElement deanMenuButton;
+    @FindBy(xpath = "//a[contains(@class, 'nav-link') and text()='Contact Get All']") public WebElement contactGetAllButton;
+    @FindBy(xpath = "//*[@class='fw-bold p-3 card-header']") public WebElement contactMessageText;
+    @FindBy(css = "tbody tr:nth-child(1) td:nth-child(4)") public WebElement undeletableMessage;
 
 
 

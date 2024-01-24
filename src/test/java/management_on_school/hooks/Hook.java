@@ -8,13 +8,14 @@ import java.time.Duration;
 
 public class Hook {
 
-    @Before("@UI")
+    @Before()
     public void setup(){
         Driver.getDriver().manage().window().maximize();
         Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
     }
 
-    @After("@UI")
+    @After()
     public void tearDown(){
         Driver.closeDriver();
     }
