@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         plugin = "html:TestOutput/reports/CucumberReport.html",
         features = "src/test/resources",
         glue = {"management_on_school/stepDefinitions", "management_on_school/hooks"},
-        tags = "@US25",
+        tags = "@US15",
         dryRun = false
 )
 public class Runner {
