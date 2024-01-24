@@ -5,18 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-
-
-
-
-
-
-
-
-
-
-
-
+import java.util.List;
 
 
 public class AddDeanPage {
@@ -98,30 +87,41 @@ public class AddDeanPage {
 
 
     // Duygu Jones (100)
+    //--> Dean Management Page
+    @FindBy(xpath = "//h5[.='Dean List']")   public WebElement deanListTitleDj;
+    @FindBy(xpath = "//h3[@bg='primary']")   public WebElement deanManagementTitleDj;
+    @FindBy(xpath = "(//*[@class='page-link'])[5]")   public WebElement deanLastPageIconDj;
+    @FindBy(xpath = "//table[@class='table table-striped table-bordered table-hover']//tbody//tr//td[1]")
+    public List<WebElement> deanNamesListDj;
+    @FindBy(xpath = "//table[@class='table table-striped table-bordered table-hover']//tbody//tr//td[2]")
+    public List<WebElement> deanGenderListDj;
+    @FindBy(xpath = "//table[@class='table table-striped table-bordered table-hover']//tbody//tr//td[3]")
+    public List<WebElement> deanPhoneListDj;
+    @FindBy(xpath = "//table[@class='table table-striped table-bordered table-hover']//tbody//tr//td[4]")
+    public List<WebElement> deanSsnNumsListDj;
+    @FindBy(xpath = "//table[@class='table table-striped table-bordered table-hover']//tbody//tr//td[5]")
+    public List<WebElement> deanUserNamesListDj;
+    @FindBy(xpath = "(//button[@class='text-dark btn btn-outline-info'])")
+    public List<WebElement> deanEditButtonListDj;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //--> Dean Add/Edit locators
+    @FindBy(id="name")   public WebElement deanNameBoxDj;
+    @FindBy(id="surname")   public WebElement deanSurnameBoxDj;
+    @FindBy(id="birthPlace")   public WebElement deanBirthPlaceBoxDj;
+    @FindBy(xpath="//input[@value='FEMALE']")   public WebElement deanFemaleCheckBoxDj;
+    @FindBy(xpath="//input[@value='MALE']")   public WebElement deanMaleCheckBoxDj;
+    @FindBy(id="birthDay")   public WebElement deanBirthDateBoxDj;
+    @FindBy(id="phoneNumber")   public WebElement deanPhoneBoxDj;
+    @FindBy(id="ssn")   public WebElement deanSsnBoxDj;
+    @FindBy(id="username")   public WebElement deanUsernameBoxDj;
+    @FindBy(id="password")   public WebElement deanPasswordBoxDj;
+    @FindBy(xpath="(//button[.='Submit'])[2]")   public WebElement editDeanSubmitButtonDj;
+    @FindBy(css="#root") public WebElement deanUpdatedSucDj;
+    @FindBy(css = ".btn-primary") public WebElement addDeanSubmitButtonDj;
+    @FindBy(xpath="//div[@class='Toastify__toast-body']/div[.='Dean Saved']")  public WebElement deanSavedPopUpDj;
+    @FindBy(xpath="(//div[@class='invalid-feedback'])[1]")  public WebElement nameRequiredPopupDj;  //name required text locate
+    @FindBy(xpath="//div[@class='Toastify__toast-body']/div[.='Please enter valid SSN number']")  public WebElement ssnRequiredPopupDj;
+    @FindBy(xpath="(//div[@class='invalid-feedback'])[8]")  public WebElement unValidPasswordDj;
 
 
 
