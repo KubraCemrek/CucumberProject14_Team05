@@ -1,8 +1,8 @@
-package management_on_school.pojos.guestUser;
+package management_on_school.pojos.dean_management;
 
 import java.io.Serializable;
 
-public class GuestObjectPojo implements Serializable {
+public class DeanObjectPojo implements Serializable {
 	private int userId;
 	private String username;
 	private String name;
@@ -13,10 +13,11 @@ public class GuestObjectPojo implements Serializable {
 	private String phoneNumber;
 	private String gender;
 
-	public GuestObjectPojo() {
+	public DeanObjectPojo() {
+
 	}
 
-	public GuestObjectPojo(int userId, String username, String name, String surname, String birthDay, String ssn, String birthPlace, String phoneNumber, String gender) {
+	public DeanObjectPojo(int userId, String username, String name, String surname, String birthDay, String ssn, String birthPlace, String phoneNumber, String gender) {
 		this.userId = userId;
 		this.username = username;
 		this.name = name;
@@ -101,18 +102,18 @@ public class GuestObjectPojo implements Serializable {
 	}
 
 	@Override
- 	public String toString(){
-		return 
-			"ObjectPojo{" + 
-			"userId = '" + userId + '\'' + 
-			",username = '" + username + '\'' + 
-			",name = '" + name + '\'' + 
-			",surname = '" + surname + '\'' + 
-			",birthDay = '" + birthDay + '\'' + 
-			",ssn = '" + ssn + '\'' + 
-			",birthPlace = '" + birthPlace + '\'' + 
-			",phoneNumber = '" + phoneNumber + '\'' + 
-			",gender = '" + gender + '\'' + 
-			"}";
-		}
+	public String toString(){
+		return
+				"ObjectPojo{" +
+						"userId = '" + userId + '\'' +
+						",username = '" + username + '\'' +
+						",name = '" + name + '\'' +
+						",surname = '" + surname + '\'' +
+						",birthDay = '" + birthDay + '\'' +
+						",ssn = '" + ssn + '\'' +
+						",birthPlace = '" + birthPlace + '\'' +
+						",phoneNumber = '" + phoneNumber + '\'' +
+						",gender = '" + gender + '\'' +
+						"}";
+	}
 }
