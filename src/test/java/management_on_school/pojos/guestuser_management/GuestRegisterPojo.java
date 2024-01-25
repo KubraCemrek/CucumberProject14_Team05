@@ -1,4 +1,4 @@
-package management_on_school.pojos.guestUser;
+package management_on_school.pojos.guestuser_management;
 
 import java.io.Serializable;
 

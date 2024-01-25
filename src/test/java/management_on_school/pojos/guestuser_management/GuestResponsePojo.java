@@ -1,26 +1,29 @@
-package management_on_school.pojos.vicedean_management;
+package management_on_school.pojos.guestuser_management;
 
 import java.io.Serializable;
 
-public class ResponseViceDeanTPojo implements Serializable {
-	private ObjectPojo object;
+public class GuestResponsePojo implements Serializable {
+	private GuestObjectPojo object;
 	private String message;
 	private String httpStatus;
 
-	public ResponseViceDeanTPojo() {
-	}
-
-	public ResponseViceDeanTPojo(ObjectPojo object, String message, String httpStatus) {
+	public GuestResponsePojo(GuestObjectPojo object, String message, String httpStatus) {
 		this.object = object;
 		this.message = message;
 		this.httpStatus = httpStatus;
 	}
 
-	public void setObject(ObjectPojo object){
+	public GuestResponsePojo() {
+	}
+
+
+
+
+	public void setObject(GuestObjectPojo object){
 		this.object = object;
 	}
 
-	public ObjectPojo getObject(){
+	public GuestObjectPojo getObject(){
 		return object;
 	}
 
@@ -43,7 +46,7 @@ public class ResponseViceDeanTPojo implements Serializable {
 	@Override
  	public String toString(){
 		return 
-			"ResponseViceDeanTPojo{" + 
+			"ResponsePojo{" + 
 			"object = '" + object + '\'' + 
 			",message = '" + message + '\'' + 
 			",httpStatus = '" + httpStatus + '\'' + 
