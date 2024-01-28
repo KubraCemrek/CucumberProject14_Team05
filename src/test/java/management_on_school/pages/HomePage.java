@@ -98,12 +98,12 @@ public class HomePage {
 
 
     // Duygu Jones (100)
+    @FindBy(css = "a[href='/register']")      public WebElement registerButtonDj;
     @FindBy(xpath="//a[@href='/login']")      public WebElement loginMainDj;
     @FindBy(xpath = "//*[@id='username']")    public WebElement usernameDj;
     @FindBy(xpath="//*[@id='password']")    public WebElement passwordDj;
     @FindBy(xpath = "(//*[@type='button'])[3]")    public WebElement loginButtonDj;
     @FindBy(xpath = "(//*[@type='button'])[1]")    public WebElement menuButtonDj;
-
 
 
 
