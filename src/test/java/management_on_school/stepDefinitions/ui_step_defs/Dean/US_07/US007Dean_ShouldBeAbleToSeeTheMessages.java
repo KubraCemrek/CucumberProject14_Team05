@@ -12,28 +12,28 @@ import org.junit.Assert;
 public class US007Dean_ShouldBeAbleToSeeTheMessages {
     AddDeanPage addDeanPage = new AddDeanPage();
 
-    @Given("The website is visited.")
+    @Given("The Website is visited.")
     public void Thewebsiteisvisited() {
         Driver.getDriver().get(ConfigReader.getProperty("manage_Url"));
     }
 
-    @When("click Login.")
+    @When("click login.")
     public void clickLogin() {
         addDeanPage.deanloginLinkYakup.click();
     }
 
-    @And("enter username.")
+    @And("enter Username.")
     public void enterusername() {
         addDeanPage.deanusernameBoxYakup.sendKeys(ConfigReader.getProperty("Dean_username"));
 
     }
 
-    @And("enter password.")
+    @And("enter Password.")
     public void enterpassword() {
         addDeanPage.deanpasswordBoxYakup.sendKeys(ConfigReader.getProperty("Dean_password"));
     }
 
-    @And("click Login Button.")
+    @And("click login Button.")
     public void clickLoginButton() {
         addDeanPage.deanloginButtonYakup.click();
     }
