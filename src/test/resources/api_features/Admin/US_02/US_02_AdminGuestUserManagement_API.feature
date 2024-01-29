@@ -2,9 +2,9 @@
 
 Feature: US02 GuestUser Management
 
-  #-----> Admin, sadece Get ve Delete GuestUser yapabilir; Guest Register UI ile yapildi
-  @UI_US02
-  Scenario: US02_TC01 Register as a GuestUser on the website api
+  #-----> Admin, sadece Get ve Delete GuestUser yapabilir; Guest Register UI ile yapildi -Api da Regsiter olmuyor
+  @UI
+  Scenario: US02_TC01 Register as a GuestUser on the website UI
     Given dj user goes to the page Url
     Then dj Clicks on the register button
     And  dj User clicks on the gender "FEMALE" button
@@ -12,8 +12,7 @@ Feature: US02 GuestUser Management
     And dj close the browser
 
 
-
-  Scenario: US04_TC02 Admin sends GET request to get AGuestUser information from the website api
+  Scenario: US02_TC02 Admin sends GET request to get AGuestUser information from the website api
     Given Login as "Admin"
     Then dj Admin sends GET Request with the URL and saves the userID after GuestUser registered
     Then dj Admin creates Expected Response Body for guestUser
@@ -22,7 +21,7 @@ Feature: US02 GuestUser Management
     And dj Admin verifies GET Response Body as expected for guestUser
 
 
-  Scenario: US04_TC03 Admin send DELETE Request to delete GuestUser from the website api
+  Scenario: US02_TC03 Admin send DELETE Request to delete GuestUser from the website api
     Given Login as "Admin"
     Then dj Admin creates DELETE Request with the URL and guestUser-delete-userID path parameters for guestUser
     And dj Admin sends DELETE Request and saves the response for guestUser
