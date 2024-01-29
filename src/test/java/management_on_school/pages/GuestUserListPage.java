@@ -1,20 +1,11 @@
 package management_on_school.pages;
 
 import management_on_school.utilities.Driver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-
-
-
-
-
-
-
-
-
-
-
-
+import java.util.List;
 
 
 public class GuestUserListPage {
@@ -98,24 +89,33 @@ public class GuestUserListPage {
 
 
     // Duygu Jones (100)
+    @FindBy(xpath = "//*[.='Guest User']") public WebElement adminGuestUserDj;
+    @FindBy(css="h5[bg='primary']") public WebElement guestUserListTitleDj;
+    @FindBy(xpath = "//*[.='Last']") public WebElement guestUserLastPageIconDj;
+    @FindBy(xpath = "(//*[.='Team05Guest Perfect'])[2]")  public WebElement team05GuestNameDj;
+    @FindBy(xpath = "//table[@class='table table-striped table-bordered table-hover']//tbody//tr//td[1]")
+    public List<WebElement> guestNamesListDj;
+    @FindBy(xpath = "//table[@class='table table-striped table-bordered table-hover']//tbody//tr//td[2]")
+    public List<WebElement> guestPhoneNumsListDj;
+    @FindBy(xpath = "//table[@class='table table-striped table-bordered table-hover']//tbody//tr//td[3]")
+    public List<WebElement> guestSsnNumsListDj;
+    @FindBy(xpath = "//table[@class='table table-striped table-bordered table-hover']//tbody//tr//td[4]")
+    public List<WebElement> guestUserNamesListDj;
+    @FindBy(xpath = "//button[@class='btn btn-danger']")
+    public List<WebElement> guestDeleteButtonListDj;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //--------Register Guest User for API------------------------
+    @FindBy(id="name")   public WebElement guestNameBoxDj;
+    @FindBy(id="surname")   public WebElement guestSurnameBoxDj;
+    @FindBy(id="birthPlace")   public WebElement guestBirthPlaceBoxDj;
+    @FindBy(xpath="//input[@value='FEMALE']")   public WebElement guestFemaleCheckBoxDj;
+    @FindBy(xpath="//input[@value='MALE']")   public WebElement guestMaleCheckBoxDj;
+    @FindBy(id="birthDay")   public WebElement guestBirthDateBoxDj;
+    @FindBy(id="phoneNumber")   public WebElement guestPhoneBoxDj;
+    @FindBy(id="ssn")   public WebElement guestSsnBoxDj;
+    @FindBy(id="username")   public WebElement guestUsernameBoxDj;
+    @FindBy(id="password")   public WebElement guestPasswordBoxDj;
+    @FindBy(xpath="//div[@role='alert']/div[.='Guest User registered.']")  public WebElement guestRegisterVerifyDj;
 
 
 
