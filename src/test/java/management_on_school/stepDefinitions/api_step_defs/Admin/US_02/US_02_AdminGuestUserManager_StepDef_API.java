@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.given;
 import static management_on_school.base_url.BaseUrl.spec;
 import static org.junit.Assert.assertEquals;
 
-public class US_02AdminGuestUserManager_StepDef_API {
+public class US_02_AdminGuestUserManager_StepDef_API {
     Response response;
     static int id;
     public static GuestContentBodyPojo expectedData;
@@ -36,7 +36,6 @@ public class US_02AdminGuestUserManager_StepDef_API {
         //response.prettyPrint();
 
         JsonPath json = response.jsonPath();
-                                //"findAll{it.username=='00GuestDuyguJ'}.id"   --> gerekirse List olarak olabilir ama calismadi
         id = json.getInt("content[0].id");
         System.out.println("id = " + id);
     }
@@ -52,9 +51,7 @@ public class US_02AdminGuestUserManager_StepDef_API {
                                             "Wales",
                                             "444-932-1901",
                                             "FEMALE");
-        actualData=response.as(GuestResponseBodyPojo.class);
     }
-
 
     @And("dj Admin verifies Status-Code {int} for guestUser")
     public void djAdminVerifiesStatusCodeForGuestUser(int guestGetStatusCode) {
@@ -68,7 +65,7 @@ public class US_02AdminGuestUserManager_StepDef_API {
 
     @And("dj Admin verifies GET Response Body as expected for guestUser")
     public void djAdminVerifiesGETResponseBodyAsExpectedForGuestUser() {
-        //guestObjectPojo expected olarak olusturuldu
+        actualData=response.as(GuestResponseBodyPojo.class);
         assertEquals(expectedData.getName(),actualData.getContent().get(0).getName());
         assertEquals(expectedData.getSurname(),actualData.getContent().get(0).getSurname());
         assertEquals(expectedData.getUsername(),actualData.getContent().get(0).getUsername());
@@ -111,7 +108,7 @@ public class US_02AdminGuestUserManager_StepDef_API {
         JsonPath actualDeleteResponseBody=response.jsonPath();
         assertEquals(expectedDeleteResponseBody.get("message"), actualDeleteResponseBody.get("message"));
         assertEquals(expectedDeleteResponseBody.get("httpStatus"), actualDeleteResponseBody.get("httpStatus"));
-
-
     }
+
+
 }
