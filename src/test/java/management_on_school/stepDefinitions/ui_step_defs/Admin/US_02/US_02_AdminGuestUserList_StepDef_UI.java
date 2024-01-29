@@ -13,13 +13,15 @@ import management_on_school.utilities.ReusableMethods;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
+import static org.junit.Assert.assertTrue;
+
 public class US_02_AdminGuestUserList_StepDef_UI {
 
     HomePage homePage=new HomePage();
     AdminPage adminPage=new AdminPage();
     GuestUserListPage guestUserPage =new GuestUserListPage();
 
-    @Given("dj admin goes the page url")
+    @Given("dj user goes to the page Url")
     public void djUserGoesThePageUrl() {
         Driver.getDriver().get(ConfigReader.getProperty("manage_Url"));
     }
@@ -33,7 +35,7 @@ public class US_02_AdminGuestUserList_StepDef_UI {
     @And("dj admin login with user credentials")
     public void djUserLoginWithUserCredentials() {
         homePage.usernameDj.sendKeys(ConfigReader.getProperty("admin_username"), Keys.TAB,
-                ConfigReader.getProperty("admin_password"),Keys.TAB,Keys.ENTER);
+                                     ConfigReader.getProperty("admin_password"),Keys.TAB,Keys.ENTER);
     }
 
     @Then("tb user verifies if navigated to the admin management page")
@@ -59,27 +61,26 @@ public class US_02_AdminGuestUserList_StepDef_UI {
     @Then("dj user verifies,Guest User List title is visible")
     public void dj_user_verifies_guest_user_list_title_is_visible() {
         ReusableMethods.waitForSecond(2);
-        Assert.assertTrue(guestUserPage.guestUserListTitleDj.isDisplayed());
+        assertTrue(guestUserPage.guestUserListTitleDj.isDisplayed());
     }
 
     @And("dj user verifies,name is visible")
     public void djUserVerifiesNameIsVisible() {
         ReusableMethods.waitForSecond(1);
+        assertTrue(guestUserPage.guestNamesListDj.get(0).isDisplayed());
+
 //        List<WebElement> nameList = guestUserPage.guestNamesListDj;
 //        List<String> names = new ArrayList<>();
 //        for (WebElement w : nameList) {
 //            names.add(w.getText());
 //        }
 //        Assert.assertTrue(names.contains("Team05Guest Perfect"));
-
-        Assert.assertTrue(guestUserPage.guestNamesListDj.get(0).isDisplayed());
-
     }
 
     @And("dj user verifies, phone number is visible")
     public void djUserVerifiesPhoneNumberIsVisible() {
         ReusableMethods.waitForSecond(1);
-        Assert.assertTrue(guestUserPage.guestPhoneNumsListDj.get(0).isDisplayed());
+        assertTrue(guestUserPage.guestPhoneNumsListDj.get(0).isDisplayed());
 
 //        List<WebElement> guestPhoneList = guestUserPage.guestPhoneNumsListDj;
 //        List<String> phoneNumbers = guestPhoneList.stream().map(WebElement::getText).collect(Collectors.toList());
@@ -89,13 +90,13 @@ public class US_02_AdminGuestUserList_StepDef_UI {
     @And("dj user verifies, ssn is visible")
     public void djUserVerifiesSsnIsVisible() {
         ReusableMethods.waitForSecond(1);
-        Assert.assertTrue(guestUserPage.guestSsnNumsListDj.get(0).isDisplayed());
+        assertTrue(guestUserPage.guestSsnNumsListDj.get(0).isDisplayed());
     }
 
     @And("dj user verifies, Username is visible")
     public void djUserVerifiesUsernameIsVisible() {
         ReusableMethods.waitForSecond(1);
-        Assert.assertTrue(guestUserPage.guestUserNamesListDj.get(0).isDisplayed());
+        assertTrue(guestUserPage.guestUserNamesListDj.get(0).isDisplayed());
     }
 
     @And("dj user clicks the delete")
@@ -108,4 +109,35 @@ public class US_02_AdminGuestUserList_StepDef_UI {
     public void djCloseTheBrowser() {
         Driver.closeDriver();
     }
+
+
+    //----------GuestUser Register----------------------
+    @Then("dj Clicks on the register button")
+    public void dj_clicks_on_the_register_button() {
+        ReusableMethods.jsClick(homePage.registerButtonDj);
+    }
+    @Then("dj Fills the required information and clicks on Register")
+    public void dj_fills_the_required_information_and_clicks_on_register() {
+        guestUserPage.guestNameBoxDj.sendKeys(
+                        "GuestDuyguJ",Keys.TAB,     //Name
+                                    "Joneses", Keys.TAB,        //Surname
+                                    "Wales",Keys.TAB,           //BirthPlace
+                                    "444-932-1901",Keys.TAB,    //Phone
+                                                   Keys.TAB,    //Gender skipped
+                                    "01011990",Keys.TAB,        //BirtDate
+                                    "823-10-7392",Keys.TAB,     //SSN no
+                                    "00GuestDuyguJ",Keys.TAB, //Username
+                                    "Project14",Keys.TAB,       //password
+                                            Keys.ENTER);        //clicks on Register button
+        ReusableMethods.waitForSecond(2);
+
+    }
+    @Then("dj user verifies,Guest User registered successfully")
+    public void dj_user_verifies_guest_user_registered_successfully() {
+        Assert.assertTrue(guestUserPage.guestRegisterVerifyDj.isDisplayed());
+        ReusableMethods.waitForSecond(1);
+    }
+
+
+
 }
