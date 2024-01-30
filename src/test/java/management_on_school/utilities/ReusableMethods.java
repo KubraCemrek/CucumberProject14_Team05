@@ -299,6 +299,20 @@ public class ReusableMethods {
 //===================299: Ortak Methods Sonu / Kisilere ait Methods Baslangici ==========================================
     // 1. kisi satir Baslangici: 300/ satir sonu: 319)
 
+    //bu method ekrani bir mosue tekeri donmesi kadar asagi kaydirir
+    public static void pageDown() {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+    }
+
+    // bu method ekrani bir mosue tekeri donmesi kadar yukari kaydirir
+    public static void pageUp() {
+        Actions actions = new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_UP).perform();
+    }
+
+
+
 
 
 
