@@ -18,7 +18,6 @@ import org.openqa.selenium.interactions.Actions;
 import static org.junit.Assert.assertTrue;
 
 public class US_04_AdminAddsDean_StepDef_UI {
-
     HomePage homePage=new HomePage();
     AdminPage adminPage=new AdminPage();
     AddDeanPage addDeanPage =new AddDeanPage();
@@ -46,14 +45,12 @@ public class US_04_AdminAddsDean_StepDef_UI {
 
     @Then("dj Admin verifies if navigated to the admin management page")
     public void djAdminVerifiesIfNavigatedToTheAdminManagementPage() {
-        ReusableMethods.waitForSecond(2);
+        ReusableMethods.waitForSecond(1);
         String expectedUrl = "https://managementonschools.com/admin-management";
         String actualUrl = Driver.getDriver().getCurrentUrl();
         Assert.assertEquals(expectedUrl, actualUrl);
-        ReusableMethods.waitForSecond(1);
     }
 
-    //----------senario1--------------------
     @And("dj Admin clicks on the menu button")
     public void djAdminClicksOnTheMenuButton() {
         adminPage.adminMenuButtonDj.click();
@@ -86,7 +83,7 @@ public class US_04_AdminAddsDean_StepDef_UI {
         ReusableMethods.waitForSecond(1);
     }
 
-    @And("dj Admin clicks on the gender {string} button")
+    @And("dj User clicks on the gender {string} button")
     public void djAdminClicksOnTheGenderFemaleButton(String str) {
 
         String gender = "";
@@ -145,10 +142,9 @@ public class US_04_AdminAddsDean_StepDef_UI {
     @Then("dj Admin verifies if the Dean Saved popup is displayed")
     public void djAdminVerifiesIfTheDeanSavedPopupIsDisplayed() {
         ReusableMethods.waitForSecond(1);
-        Assert.assertTrue(addDeanPage.deanSavedPopUpDj.isDisplayed());
+        Assert.assertTrue(addDeanPage.deanSavedVerifyDj.isDisplayed());
     }
-
-    //-------------senario 2------------------
+//-------------senario 2------------------
     @And("dj Admin fills the invalids {string} ssn box")
     public void djAdminFillsTheInvalidsSsnBox(String ssnNum) {
         addDeanPage.deanSsnBoxDj.sendKeys(ssnNum);
@@ -159,21 +155,21 @@ public class US_04_AdminAddsDean_StepDef_UI {
     @And("dj Admin verifies if the Ssn Ssn required text is displayed to the admin management page")
     public void djAdminVerifiesIfTheSsnSsnRequiredTextIsDisplayedToTheAdminManagementPage() {
         if (Ssn.length() == 11) {
-            ReusableMethods.waitForVisibleElement(addDeanPage.ssnRequiredPopupDj, 3);
-            assertTrue(addDeanPage.ssnRequiredPopupDj.getText().contains("Please enter valid SSN number"));
+            ReusableMethods.waitForVisibleElement(addDeanPage.ssnRequiredVerifyDj, 3);
+            assertTrue(addDeanPage.ssnRequiredVerifyDj.getText().contains("Please enter valid SSN number"));
         }
         if (Ssn.length() > 11) {
-            ReusableMethods.waitForVisibleElement(addDeanPage.ssnRequiredPopupDj, 3);
-            assertTrue(addDeanPage.ssnRequiredPopupDj.getText().contains("Please enter valid SSN number"));
+            ReusableMethods.waitForVisibleElement(addDeanPage.ssnRequiredVerifyDj, 3);
+            assertTrue(addDeanPage.ssnRequiredVerifyDj.getText().contains("Please enter valid SSN number"));
         }
         if (Ssn.length() < 11) {
 
-            assertTrue(addDeanPage.ssnRequiredPopupDj.getText().contains("Minimum 11 character (XXX-XX-XXXX)"));
+            assertTrue(addDeanPage.ssnRequiredVerifyDj.getText().contains("Minimum 11 character (XXX-XX-XXXX)"));
         }
     }
 
 
-    //----------senario3--------------------
+ //----------senario3--------------------
     @And("dj Admin fills the empty {string} box")
     public void djAdminFillsTheEmptyBox(String emptyName) {
         ReusableMethods.waitForSecond(2);
@@ -183,10 +179,10 @@ public class US_04_AdminAddsDean_StepDef_UI {
     @And("dj Admin verifies if the name required text is displayed to the admin management page")
     public void djAdminVerifiesIfTheNameRequiredTextIsDisplayedToTheAdminManagementPage() {
         ReusableMethods.waitForSecond(2);
-        Assert.assertTrue(addDeanPage.nameRequiredPopupDj.isDisplayed());
+        Assert.assertTrue(addDeanPage.nameRequiredVerifyDj.isDisplayed());
     }
 
-    //----------senario4--------------------
+    //-----------Scenario 4: wrong password-----------
     @And("dj Admin fills the password box invalid {string}")
     public void djAdminFillsThePasswordBoxInvalid(String pwd) {
         addDeanPage.deanPasswordBoxDj.sendKeys(pwd);
@@ -195,7 +191,24 @@ public class US_04_AdminAddsDean_StepDef_UI {
     @And("dj Admin verifies if the valid phone number required text is displayed to the admin management page")
     public void djAdminVerifiesIfTheOneNumberTextIsDisplayedToTheAdminManagementPage() {
         ReusableMethods.waitForSecond(2);
-        Assert.assertTrue(addDeanPage.unValidPasswordDj.getText().contains("One number"));
+        Assert.assertTrue(addDeanPage.unValidPasswordVerifyDj.getText().contains("One number"));
     }
 
+    //----------E2E: Create the Dean with the Information on UI-----------
+    @And("dj Fills the required information and clicks on Submit Button")
+    public void djFillsTheRequiredInformationAndClicksOnSubmitButton() {
+        addDeanPage.deanNameBoxDj.sendKeys(
+                    "Duygu",Keys.TAB,                   //Name
+                                "Jones", Keys.TAB,                  //Surname
+                                "Izmir",Keys.TAB,                   //BirthPlace
+                                Keys.TAB,                           //Gender skipped
+                                "05051975",Keys.TAB,                //BirtDate
+                                "555-275-8196",Keys.TAB,            //Phone
+                                "568-72-9305",Keys.TAB,             //SSN no
+                                "jnsduygu",Keys.TAB,                //Username
+                                "Project14",Keys.TAB,               //password
+                                Keys.ENTER);                        //clicks on Submit button
+
+        ReusableMethods.waitForSecond(2);
+    }
 }

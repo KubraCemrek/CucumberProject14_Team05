@@ -43,7 +43,6 @@ public class US_05_AdminEditsDean_StepDef_UI {
         Assert.assertEquals(expectedUrl, actualUrl);
     }
 
-    //----------Senario 1-----------------------
     @When("dj admin clicks on the menu button")
     public void djAdminClicksOnTheMenuButton() {
         ReusableMethods.waitForSecond(2);
@@ -93,7 +92,6 @@ public class US_05_AdminEditsDean_StepDef_UI {
         Assert.assertTrue(addDeanPage.deanUserNamesListDj.get(0).isDisplayed());
     }
 
-    //----------Senario 2-------------------------------
     @And("dj admin clicks on the edit button")
     public void djAdminClicksOnTheEditButton() {
         ReusableMethods.waitForSecond(1);
@@ -103,7 +101,7 @@ public class US_05_AdminEditsDean_StepDef_UI {
     @And("dj admin clicks on the gender female button")
     public void djAdminClicksOnTheGenderFemaleButton() {
         ReusableMethods.waitForSecond(1);
-        addDeanPage.deanFemaleCheckBoxDj.click();
+        ReusableMethods.jsClick(addDeanPage.deanFemaleCheckBoxDj);
     }
 
     @And("dj admin fills the password box")
@@ -122,7 +120,7 @@ public class US_05_AdminEditsDean_StepDef_UI {
     @Then("dj admin verifies if the Dean Updated Successfully popup is displayed")
     public void djAdminVerifiesIfTheDeanUpdatedSuccessfullyPopupIsDisplayed() {
         ReusableMethods.waitForSecond(1);
-        Assert.assertTrue(addDeanPage.deanUpdatedSucDj.isDisplayed());
+        Assert.assertTrue(addDeanPage.deanEditedVerifyDj.isDisplayed());
     }
 
     @And("dj admin clicks on the edit-close X button")

@@ -1,6 +1,4 @@
 /.idea/
-/target/
-/TestOutput/
 /.idea/dbnavigator.xml/
 /.idea/misc.xml/
 /.idea/vcs.xml/
@@ -9,6 +7,9 @@
 /.idea/jarRepositories.xml/
 /.idea/encodings.xml/
 /.idea/compiler.xml/
-
+/src/test/java/management_on_school/runners/Runner.java/
+/target/
+/TestOutput/reports/
+/TestOutput/
 
 

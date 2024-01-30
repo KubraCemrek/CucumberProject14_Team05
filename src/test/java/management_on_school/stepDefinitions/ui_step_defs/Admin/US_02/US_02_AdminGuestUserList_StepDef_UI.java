@@ -68,23 +68,12 @@ public class US_02_AdminGuestUserList_StepDef_UI {
     public void djUserVerifiesNameIsVisible() {
         ReusableMethods.waitForSecond(1);
         assertTrue(guestUserPage.guestNamesListDj.get(0).isDisplayed());
-
-//        List<WebElement> nameList = guestUserPage.guestNamesListDj;
-//        List<String> names = new ArrayList<>();
-//        for (WebElement w : nameList) {
-//            names.add(w.getText());
-//        }
-//        Assert.assertTrue(names.contains("Team05Guest Perfect"));
     }
 
     @And("dj user verifies, phone number is visible")
     public void djUserVerifiesPhoneNumberIsVisible() {
         ReusableMethods.waitForSecond(1);
         assertTrue(guestUserPage.guestPhoneNumsListDj.get(0).isDisplayed());
-
-//        List<WebElement> guestPhoneList = guestUserPage.guestPhoneNumsListDj;
-//        List<String> phoneNumbers = guestPhoneList.stream().map(WebElement::getText).collect(Collectors.toList());
-//        Assert.assertTrue(phoneNumbers.contains("guest_phone"));
     }
 
     @And("dj user verifies, ssn is visible")
@@ -111,7 +100,7 @@ public class US_02_AdminGuestUserList_StepDef_UI {
     }
 
 
-    //----------GuestUser Register----------------------
+    //----------GuestUser Register UI----------------------
     @Then("dj Clicks on the register button")
     public void dj_clicks_on_the_register_button() {
         ReusableMethods.jsClick(homePage.registerButtonDj);
@@ -126,7 +115,7 @@ public class US_02_AdminGuestUserList_StepDef_UI {
                                                    Keys.TAB,    //Gender skipped
                                     "01011990",Keys.TAB,        //BirtDate
                                     "823-10-7392",Keys.TAB,     //SSN no
-                                    "00GuestDuyguJ",Keys.TAB, //Username
+                                    "00GuestDuyguJ",Keys.TAB,   //Username
                                     "Project14",Keys.TAB,       //password
                                             Keys.ENTER);        //clicks on Register button
         ReusableMethods.waitForSecond(2);
