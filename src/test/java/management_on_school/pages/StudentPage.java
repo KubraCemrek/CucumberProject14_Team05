@@ -1,9 +1,9 @@
 package management_on_school.pages;
 
 import management_on_school.utilities.Driver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-
 
 
 
@@ -698,116 +698,116 @@ public class StudentPage {
 
 
     // Mustafa Aydin (700)
+    @FindBy(xpath = "//a[@class='header_link me-2']") public WebElement registerAnaSayfa;
 
+    @FindBy(xpath = "//input[@id='name']") public WebElement name;
 
+    @FindBy(xpath = "//input[@id='surname']") public WebElement surname;
 
+    @FindBy(xpath = "//input[@id='birthPlace']") public WebElement birthPlace;
 
+    @FindBy(xpath = "//*[@value='FEMALE']") public WebElement female;
 
+    @FindBy(xpath = "//*[@value='MALE']") public WebElement male;
+    @FindBy(xpath = "//input[@id='birthDay']") public WebElement dateOfBirth;
 
+    @FindBy(xpath = "//input[@id='phoneNumber']") public WebElement phoneNumber;
 
+    @FindBy(xpath = "//input[@id='ssn']") public WebElement ssn;
 
+    @FindBy(xpath = "//input[@id='username']") public WebElement username;
 
+    @FindBy(xpath = "//input[@id='password']") public WebElement password;
 
+    @FindBy(css = "*[placeholder='username']") public WebElement usernamep;
 
+    @FindBy(css = "*[placeholder='Password']") public WebElement passwordp;
 
+    @FindBy(xpath = "//div[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--error Toastify__toast--close-on-click']") public WebElement atleast2char;
 
+    @FindBy(xpath = "//div[@class='Toastify__toast-container Toastify__toast-container--top-center']") public WebElement exact12char;
 
+    @FindBy(xpath = "//*[contains(text(),'Minimum 12 character')]") public WebElement min12char;
 
+    @FindBy(xpath = "//*[contains(text(),'Please enter valid phone number')]") public WebElement enterValidPhone;
 
+    @FindBy(xpath = "//*[contains(text(),'geçmiş bir tarih olmalı')]") public WebElement gecmisBirTarihOlmali;
 
+    @FindBy(xpath = "//*[contains(text(),'Please enter valid SSN number')]") public WebElement pleaseEnterValidSsnNumber;
 
+    @FindBy(xpath = "//*[contains(text(),'Minimum 11 character')]") public WebElement min11char;
 
+    @FindBy(xpath = "//*[contains(text(),'Your username should be at least 4 characters')]") public WebElement atleast4char;
 
+    @FindBy(xpath = "//*[contains(text(),'Guest User registered.')]") public WebElement guestUserRegistered;
 
+    @FindBy(xpath = "//*[@class='fw-semibold btn btn-primary']") public WebElement register;
 
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[1]") public WebElement requiredMessageName;
 
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[2]") public WebElement requiredMessageSurname;
 
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[3]") public WebElement requiredMessageBirthPlace;
 
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[4]") public WebElement requiredMessageDateOfBirth;
 
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[5]") public WebElement requiredMessagePhone;
 
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[6]") public WebElement requiredMessageSsn;
 
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[7]") public WebElement requiredMessageUserName;
 
+    @FindBy(xpath = "(//div[@class='invalid-feedback'])[8]") public WebElement EnterYourPasswordMessage;
 
+    @FindBy(xpath = "(//div[@class='Toastify__toast-body'])[1]") public WebElement alertMessage;
 
+    @FindBy(xpath = "//*[text()='At least 8 characters']") public WebElement minimum8;
 
+    @FindBy(xpath = "//a[text()='Contact']") public WebElement contactButon;
 
+    @FindBy(xpath = "//input[@id='name']") public WebElement yourNameBox;
 
+    @FindBy(xpath = "//input[@id='email']") public WebElement yourEmailBox;
 
+    @FindBy(xpath = "//input[@id='subject']") public WebElement subjectBox;
 
+    @FindBy(xpath = "//textarea[@id='message']") public WebElement messageBox;
 
+    @FindBy(xpath = "//button[@class='fw-semibold btn btn-primary']") public WebElement sendMessageButon;
 
+    @FindBy(xpath = "//div[@role='alert']") public WebElement alert_Message;
 
+    @FindBy(xpath = "//*[@class='header_link ms-2']") public WebElement loginButton;
 
+    @FindBy(xpath = "(//*[.='Login'])[2]") public WebElement blueLoginButton;
 
+    @FindBy(xpath = "//*[@placeholder='username']") public WebElement usernameBox;
 
+    @FindBy(xpath = "//*[@id='password']") public WebElement passwordBox;
 
+    @FindBy(xpath = "//*[@bg='primary']") public WebElement studentManagementPage;
 
+    @FindBy(xpath = "//*[.='Teacher']") public WebElement teacherTitle;
 
+    @FindBy(xpath = "(//*[.='Day'])[1]") public WebElement dayTitle;
 
+    @FindBy(xpath = "(//*[.='Start Time'])[1]") public WebElement startTimeTitle;
 
+    @FindBy(xpath = "(//*[.='Stop Time'])[1]") public WebElement stopTimeTitle;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @FindBy(xpath = "(//*[@id='lessonProgramId'])[1]") public WebElement firstLessonCheckbox;
 
     // Kubra Unver (800)
 
+    @FindBy(xpath = "(//*[@id='lessonProgramId'])[2]") public WebElement secondLessonCheckbox;
 
+    @FindBy(xpath = "((//*[@class='table-group-divider'])[2]//tr//td//span[1])[1]") public WebElement firstLessonNameAssertion;
 
+    @FindBy(xpath = "(((//*[@class='table-group-divider'])[1]//tr//td)[2]//span[1])[1]") public WebElement firstLessonName;
 
+    @FindBy(xpath = "//*[@class='fw-semibold btn btn-primary btn-lg']") public WebElement submitButton;
 
-
-
-
-
-
+    @FindBy(xpath = "//*[.='Delete Button']") public WebElement deleteButton;
 
 
 
