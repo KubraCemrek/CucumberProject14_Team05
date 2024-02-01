@@ -22,7 +22,7 @@ public class US_02_AdminGuestUserManagement_StepDef_DB {
     @And("dj send a Query to get the GuestUser GetManagerById")
     public void djSendAQueryToGetTheGuestUserGetManagerById() throws SQLException {
         statement = connection.createStatement();
-        resultSet = statement.executeQuery("select * from guest_user where username='00GuestDuyguJ'");
+        resultSet = statement.executeQuery("select * from guest_user where username='000GuestDuyguJ'");
 
     }
 
