@@ -49,7 +49,6 @@ public class US09_StepDef_Api {
     @And("the URL is formatted to delete a lesson")
     public void theURLIsFormattedToDeleteALesson() {
         spec.pathParams("first","lessons","second","delete","third",lessonId);
-        System.out.println(lessonId);
 
     }
 

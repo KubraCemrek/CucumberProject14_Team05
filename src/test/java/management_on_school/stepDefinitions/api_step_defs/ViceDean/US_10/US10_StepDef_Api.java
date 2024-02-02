@@ -20,6 +20,7 @@ public class US10_StepDef_Api {
     LessonProgramResponseMehmet_10Pojo actualData;
     List<String> lessonIdList=new ArrayList<>();
 
+
     @And("the URL is configured for creating a lesson program")
     public void theURLIsConfiguredForCreatingALessonProgram() {
         spec.pathParams("first","lessonPrograms","second","save");
@@ -34,6 +35,7 @@ public class US10_StepDef_Api {
     @When("a POST request is sent for the lesson program, and a response is received")
     public void aPOSTRequestIsSentForTheLessonProgramAndAResponseIsReceived() {
         response=given(spec).when().body(payLoad).post("{first}/{second}");
+        response.prettyPrint();
         actualData=response.as(LessonProgramResponseMehmet_10Pojo.class);
     }
 
@@ -51,5 +53,6 @@ public class US10_StepDef_Api {
         Assert.assertEquals("Java_1",actualData.getObject().getLessonName().get(0).getLessonName());
         Assert.assertEquals("Created Lesson Program",actualData.getMessage());
         Assert.assertEquals("CREATED",actualData.getHttpStatus());
+
     }
 }

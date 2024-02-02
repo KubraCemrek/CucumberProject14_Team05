@@ -1,7 +1,7 @@
 @smokeKubra
-Feature: Must be able to view course schedule.
+Feature: Must be able to view course schedule
 
-  Scenario: TC_01 Must be able to view and update course schedule.
+  Scenario: TC_01 Must be able to view and update course schedule
     Given User enters the home page_k
     When User clicks Login_k
     And  User enters User Name "ViceDean_Kubra" _k

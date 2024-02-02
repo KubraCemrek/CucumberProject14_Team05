@@ -44,7 +44,7 @@ public class US08_StepDef_Api {
     public void a_post_request_is_sent_for_the_lesson_and_a_response_is_received() {
         response = given(spec).body(payLoad).when().post("{first}/{second}");
         response.prettyPrint();
-        lessonId=response.jsonPath().getString("lessonId");
+
 
     }
     @Then("it is verified that the status code for the lesson is {int}")
@@ -60,6 +60,7 @@ public class US08_StepDef_Api {
         assertEquals(payLoad.isCompulsory(),actualData.getObject().isCompulsory());
         assertEquals("Lesson Created",actualData.getMessage());
 
+        lessonId=response.jsonPath().getString("object.lessonId");
 
     }
 
