@@ -1,6 +1,8 @@
 package management_on_school.pages;
 
 import management_on_school.utilities.Driver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
@@ -21,8 +23,6 @@ public class TeacherPage {
     public TeacherPage() {
         PageFactory.initElements(Driver.getDriver(),this);
     }
-
-
 
 
 
@@ -398,7 +398,24 @@ public class TeacherPage {
 
 
     //Kubra Cemrek (400)
-
+    @FindBy(xpath = "//button[text()='Menu']") public WebElement menuButtonKubraC;
+    @FindBy(xpath = "//a[text()='Teacher Management']") public WebElement teacherManagementButtonKubraC;
+    @FindBy(xpath= "(//tr)[2]") public WebElement teacherListKubraC;
+    @FindBy(xpath = "(//button[@class = 'text-dark btn btn-outline-info'])[1]") public WebElement teacherEditButtonKubraC;
+    @FindBy(id = "react-select-4-input") public WebElement updateTeachLessonKubraC;
+    @FindBy(xpath = "(//input[@id='name'])[2]") public WebElement nameKubraC;
+    @FindBy(xpath = "(//input[@id='surname'])[2]") public WebElement surNameKubraC;
+    @FindBy(xpath = "(//input[@id='birthPlace'])[2]") public WebElement birthPlaceKubraC;
+    @FindBy(xpath = "(//input[@id='email'])[2]") public WebElement emailKubraC;
+    @FindBy(xpath = "(//input[@id='phoneNumber'])[2]") public WebElement phoneNumberKubraC;
+    @FindBy(xpath = "(//input[@id = 'isAdvisorTeacher'])[2]") public WebElement isAdvisorTeacherKubraC;
+    @FindBy(xpath = "(//input[@value='FEMALE'])[2]") public WebElement femaleButtonKubraC;
+    @FindBy(xpath = "(//input[@value='MALE'])[2]") public WebElement maleButtonKubraC;
+    @FindBy(xpath = "(//input[@id = 'birthDay'])[2]") public WebElement birthDayKubraC;
+    @FindBy(xpath = "(//input[@id = 'ssn'])[2]") public WebElement ssnBoxKubraC;
+    @FindBy(xpath = "(//input[@id = 'username'])[2]") public WebElement usernameBoxKubraC;
+    @FindBy(xpath = "(//input[@id = 'password'])[2]") public WebElement passwordBoxKubraC;
+    @FindBy(xpath = "(//button[@class='fw-semibold btn btn-primary btn-lg'])[2]") public WebElement submitButtonKubraC;
 
 
 

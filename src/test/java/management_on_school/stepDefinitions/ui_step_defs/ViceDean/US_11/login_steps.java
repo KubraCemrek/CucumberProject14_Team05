@@ -42,5 +42,4 @@ public class login_steps {
     Assert.assertTrue(viceDeanPage.lessonProgramListKubraC.isDisplayed());
 
             }
-
 }

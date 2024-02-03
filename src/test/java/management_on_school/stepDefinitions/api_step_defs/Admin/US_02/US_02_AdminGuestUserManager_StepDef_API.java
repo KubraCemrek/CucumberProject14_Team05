@@ -4,8 +4,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import management_on_school.pojos.guestuser_management.GuestContentBodyPojo;
-import management_on_school.pojos.guestuser_management.GuestResponseBodyPojo;
+import management_on_school.pojos.guestuser_management.GuestGetAllContentListPojo;
+import management_on_school.pojos.guestuser_management.GuestGetAllResponseBodyPojo;
+import management_on_school.pojos.guestuser_management.GuestPostRequestPojo;
+import management_on_school.pojos.guestuser_management.GuestPostResponsePojo;
 import org.json.JSONObject;
 
 import static io.restassured.RestAssured.given;
@@ -15,43 +17,98 @@ import static org.junit.Assert.assertEquals;
 public class US_02_AdminGuestUserManager_StepDef_API {
     Response response;
     static int id;
-    public static GuestContentBodyPojo expectedData;
-    public static GuestResponseBodyPojo actualData;
+    public static GuestGetAllContentListPojo expectedGetAllContentBody;
+    public static GuestGetAllResponseBodyPojo actualGetAllResponseBody;
 
+    GuestPostRequestPojo payload;
+    GuestPostResponsePojo actualPostResponseBody;
 
-    //----------------Scenario 1: Register GuestUser; US_02_StepDef_UI  classta yapildi.
+    //----------------Scenario 1- POST Request--------------------
+    @Then("dj create a POST Request with the URL and use guestUser-register path parameters for guestuser")
+    public void djCreateAPOSTRequestWithTheURLAndUseGuestUserRegisterPathParametersForGuestuser() {
+        spec.pathParams("first", "guestUser", "second", "register");
+    }
 
-    //----------------Scenario 2: Get Request for GuestUser--------------------
+    @Then("dj create a POST Request Body for guestuser")
+    public void djCreateAPOSTRequestBodyForGuestuser() {
+        payload =new GuestPostRequestPojo("1990-01-01",
+                                            "Wales",
+                                            "FEMALE",
+                                            "GuestDuyguJ",
+                                            "Project14",
+                                            "444-932-1901",
+                                            "823-10-7392",
+                                            "Joneses",
+                                            "000GuestDuyguJ");
+
+    }
+
+    @And("dj send a POST request and saves the response for guestuser")
+    public void djSendAPOSTRequestAndSavesTheResponseForGuestuser() {
+        response=given(spec)
+                .when().body(payload)
+                .post("{first}/{second}");
+
+        response.prettyPrint();
+    }
+
+    @And("dj verify Status-Code is {int} for guestuser")
+    public void djVerifyStatusCodeIsForGuestuser(int postGustStatus) {
+        assertEquals(postGustStatus,response.statusCode());
+    }
+
+    @And("dj verify Content-Type is {string} for guestuser")
+    public void djVerifyContentTypeIsForGuestuser(String postGuestContent) {
+        assertEquals(postGuestContent,response.contentType());
+    }
+
+    @And("dj verify POST Response Body as expected for guestuser")
+    public void djVerifyPOSTResponseBodyAsExpectedForGuestuser() {
+        actualPostResponseBody=response.as(GuestPostResponsePojo.class);
+
+        assertEquals(payload.getBirthDay(), actualPostResponseBody.getObject().getBirthDay());
+        assertEquals(payload.getBirthPlace(), actualPostResponseBody.getObject().getBirthPlace());
+        assertEquals(payload.getGender(), actualPostResponseBody.getObject().getGender());
+        assertEquals(payload.getName(), actualPostResponseBody.getObject().getName());
+        assertEquals(payload.getPhoneNumber(), actualPostResponseBody.getObject().getPhoneNumber());
+        assertEquals(payload.getSsn(), actualPostResponseBody.getObject().getSsn());
+        assertEquals(payload.getSurname(), actualPostResponseBody.getObject().getSurname());
+        assertEquals(payload.getUsername(), actualPostResponseBody.getObject().getUsername());
+    }
+
+    //----------------Scenario 2-Get Request--------------------
     @Then("dj Admin sends GET Request with the URL and saves the userID after GuestUser registered")
     public void djAdminSavedTheUserIDAfterGuestUserRegistered() {
         spec.pathParams("first", "guestUser", "second", "getAll")
                 .queryParams("page",0,
                         "size",500,
-                                "sort","username",
-                                "type","desc");
+                        "sort","username",
+                        "type","desc");
 
         response = given(spec)
-                    .when()
-                    .get("{first}/{second}");
-        //response.prettyPrint();
+                .when()
+                .get("{first}/{second}");
+        response.prettyPrint();
 
         JsonPath json = response.jsonPath();
+        //"findAll{it.username=='00GuestDuyguJ'}.id"
         id = json.getInt("content[0].id");
         System.out.println("id = " + id);
     }
 
     @Then("dj Admin creates Expected Response Body for guestUser")
     public void djAdminCreatesExpectedResponseBodyForGuestUser() {
-        expectedData =new GuestContentBodyPojo(id,
-                                            "00GuestDuyguJ",
-                                            "GuestDuyguJ",
-                                            "Joneses",
-                                            "1990-01-01",
-                                            "823-10-7392",
-                                            "Wales",
-                                            "444-932-1901",
-                                            "FEMALE");
+        expectedGetAllContentBody =new GuestGetAllContentListPojo(id,
+                                                        "000GuestDuyguJ",
+                                                        "GuestDuyguJ",
+                                                        "Joneses",
+                                                        "1990-01-01",
+                                                        "823-10-7392",
+                                                        "Wales",
+                                                        "444-932-1901",
+                                                        "FEMALE");
     }
+
 
     @And("dj Admin verifies Status-Code {int} for guestUser")
     public void djAdminVerifiesStatusCodeForGuestUser(int guestGetStatusCode) {
@@ -65,24 +122,24 @@ public class US_02_AdminGuestUserManager_StepDef_API {
 
     @And("dj Admin verifies GET Response Body as expected for guestUser")
     public void djAdminVerifiesGETResponseBodyAsExpectedForGuestUser() {
-        actualData=response.as(GuestResponseBodyPojo.class);
-        assertEquals(expectedData.getName(),actualData.getContent().get(0).getName());
-        assertEquals(expectedData.getSurname(),actualData.getContent().get(0).getSurname());
-        assertEquals(expectedData.getUsername(),actualData.getContent().get(0).getUsername());
-        assertEquals(expectedData.getBirthDay(),actualData.getContent().get(0).getBirthDay());
-        assertEquals(expectedData.getBirthPlace(),actualData.getContent().get(0).getBirthPlace());
-        assertEquals(expectedData.getPhoneNumber(),actualData.getContent().get(0).getPhoneNumber());
-        assertEquals(expectedData.getSsn(),actualData.getContent().get(0).getSsn());
-        assertEquals(expectedData.getGender(),actualData.getContent().get(0).getGender());
-    }
+        actualGetAllResponseBody =response.as(GuestGetAllResponseBodyPojo.class);
 
+        assertEquals(expectedGetAllContentBody.getName(), actualGetAllResponseBody.getContent().get(0).getName());
+        assertEquals(expectedGetAllContentBody.getSurname(), actualGetAllResponseBody.getContent().get(0).getSurname());
+        assertEquals(expectedGetAllContentBody.getUsername(), actualGetAllResponseBody.getContent().get(0).getUsername());
+        assertEquals(expectedGetAllContentBody.getBirthDay(), actualGetAllResponseBody.getContent().get(0).getBirthDay());
+        assertEquals(expectedGetAllContentBody.getBirthPlace(), actualGetAllResponseBody.getContent().get(0).getBirthPlace());
+        assertEquals(expectedGetAllContentBody.getPhoneNumber(), actualGetAllResponseBody.getContent().get(0).getPhoneNumber());
+        assertEquals(expectedGetAllContentBody.getSsn(), actualGetAllResponseBody.getContent().get(0).getSsn());
+        assertEquals(expectedGetAllContentBody.getGender(), actualGetAllResponseBody.getContent().get(0).getGender());
+    }
 
 
     //-------------Scenario 3-Delete Request------------------
 
     @Then("dj Admin creates DELETE Request with the URL and guestUser-delete-userID path parameters for guestUser")
     public void djAdminCreatesDELETERequestWithTheURLAndGuestUserDeleteUserIDPathParametersForGuestUser() {
-        spec.pathParams("first","guestUser","second","delete","third",id);
+        spec.pathParams("first","guestUser","second","delete","third", id);
     }
 
     @And("dj Admin sends DELETE Request and saves the response for guestUser")
