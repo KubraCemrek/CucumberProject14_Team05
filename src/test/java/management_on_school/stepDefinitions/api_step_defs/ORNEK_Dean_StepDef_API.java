@@ -31,8 +31,7 @@ public class ORNEK_Dean_StepDef_API {
     }
     @Given("Dean Save icin Payload duzenlenir")
     public void dean_save_icin_payload_duzenlenir() {
-        payload = new DeanRequestPojo("1975-05-05", "İstanbul", "FEMALE", "Ayşe", "12345678Aa", "555-275-7695", "568-76-7867", "Yılmaz", "ayseyilmaz");
-    }
+        payload = new DeanRequestPojo("1975-05-05", "İstanbul", "FEMALE", "Ayşe", "12345678Aa", "555-275-7695", "568-76-7867", "Yılmaz", "ayseyilmaz");}
     @When("Dean Save icin POST Request gonderilir ve Response alinir")
     public void dean_save_icin_post_request_gonderilir_ve_response_alinir() {
         response = given(spec).body(payload).when().post("{first}/{second}");

@@ -22,8 +22,8 @@ public class US06_DeanShoulBeAbleToAddViceDean {
     String name;
     static int userId;
 
-    @Given("The website is visited.")
-    public void Thewebsiteisvisited() {
+    @Given("The website is visitedd.")
+    public void TheWebsiteisvisitedd() {
         Driver.getDriver().get(ConfigReader.getProperty("manage_Url"));
     }
 
