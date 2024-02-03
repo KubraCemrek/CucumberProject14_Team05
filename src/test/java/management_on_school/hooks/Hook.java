@@ -13,14 +13,14 @@ import static management_on_school.base_url.BaseUrl.*;
 
 public class Hook {
 
-    @Before("UI")
+    @Before("@UI")
     public void setup(){
         Driver.getDriver().manage().window().maximize();
         Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
     }
 
-    @After("UI")
+    @After("@UI")
     public void tearDown(){
         Driver.closeDriver();
     }
