@@ -9,6 +9,12 @@ public class ContactObjectPojo implements Serializable {
 	private String message;
 	private String date;
 
+	public ContactObjectPojo() {
+	}
+
+	public ContactObjectPojo(String name, String mail, String subject, String message, String date) {
+	}
+
 	public void setName(String name){
 		this.name = name;
 	}

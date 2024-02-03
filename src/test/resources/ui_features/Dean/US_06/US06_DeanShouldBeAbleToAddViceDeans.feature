@@ -20,7 +20,7 @@ Feature: US006 The Dean should be able to create a Vice Dean account.
     Then Vice Dean confirmed.
 
   Scenario: TC02 Vice Dean cannot be added with the Name field left empty.
-    Given The website is visited.
+    Given The website is visitedd.
     When click Login.
     And  enter username.
     And enter password.
@@ -38,7 +38,7 @@ Feature: US006 The Dean should be able to create a Vice Dean account.
     Then Vice Dean record has not been created.
 
   Scenario: TC03 Vice Dean cannot be added with the Surname field left empty.
-    Given The website is visited.
+    Given The website is visitedd.
     When click Login.
     And  enter username.
     And enter password.
@@ -56,7 +56,7 @@ Feature: US006 The Dean should be able to create a Vice Dean account.
     Then Vice Dean record has not been created.
 
   Scenario: TC04 Vice Dean cannot be added with the Birthplace field left empty.
-    Given The website is visited.
+    Given The website is visitedd.
     When click Login.
     And  enter username.
     And enter password.
@@ -74,7 +74,7 @@ Feature: US006 The Dean should be able to create a Vice Dean account.
     Then Vice Dean record has not been created.
 
   Scenario: TC05 Vice Dean cannot be added with the Gender field not selected.
-    Given The website is visited.
+    Given The website is visitedd.
     When click Login.
     And  enter username.
     And enter password.
@@ -92,7 +92,7 @@ Feature: US006 The Dean should be able to create a Vice Dean account.
     Then Vice Dean record has not been created.
 
   Scenario: TC06 Vice Dean cannot be added with the Date of Birth field left empty.
-    Given The website is visited.
+    Given The website is visitedd.
     When click Login.
     And  enter username.
     And enter password.
@@ -110,7 +110,7 @@ Feature: US006 The Dean should be able to create a Vice Dean account.
     Then Vice Dean record has not been created.
 
   Scenario: TC07 Vice Dean cannot be added with the PhoneNumber field left empty.
-    Given The website is visited.
+    Given The website is visitedd.
     When click Login.
     And  enter username.
     And enter password.
@@ -128,7 +128,7 @@ Feature: US006 The Dean should be able to create a Vice Dean account.
     Then Vice Dean record has not been created.
 
   Scenario: TC08 Vice Dean cannot be added with the SSN field left empty.
-    Given The website is visited.
+    Given The website is visitedd.
     When click Login.
     And  enter username.
     And enter password.
@@ -146,7 +146,7 @@ Feature: US006 The Dean should be able to create a Vice Dean account.
     Then Vice Dean record has not been created.
 
   Scenario: TC09 Vice Dean cannot be added with the UserName field left empty.
-    Given The website is visited.
+    Given The website is visitedd.
     When click Login.
     And  enter username.
     And enter password.
@@ -164,7 +164,7 @@ Feature: US006 The Dean should be able to create a Vice Dean account.
     Then Vice Dean record has not been created.
 
   Scenario: TC10 Vice Dean cannot be added with the Password field left empty.
-    Given The website is visited.
+    Given The website is visitedd.
     When click Login.
     And  enter username.
     And enter password.

@@ -1,17 +1,17 @@
 package management_on_school.stepDefinitions.api_step_defs.Dean.US_06;
 
-import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import management_on_school.pojos.dean_management.DeanRequestPojo;
-import management_on_school.pojos.vicedean_management.ObjectPojo;
-import management_on_school.pojos.vicedean_management.ResponseViceDeanTPojo;
+import management_on_school.pojos.vicedean_management.ViceDeanObjectPojo;
 import management_on_school.pojos.vicedean_management.ViceDeanPostPojo;
+import management_on_school.pojos.vicedean_management.ViceDeanResponsePojo;
 import org.json.JSONObject;
+
+import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static junit.framework.TestCase.assertEquals;
@@ -22,10 +22,10 @@ public class US06_DeanShouldBeAbleToCreateViceDeanAPI {
 
     ViceDeanPostPojo payload;
     Response response;
-    ResponseViceDeanTPojo actualData;
+    ViceDeanResponsePojo actualData;
     static int userId;
-    ObjectPojo expectedData;
-    ResponseViceDeanTPojo expectedDataDelete;
+    ViceDeanObjectPojo expectedData;
+
 
     @Given("Login as Dean and set the URL for Vice Dean SAVE.")
     public void loginAsDeanAndSetTheURLForViceDeanSAVE() {
@@ -36,19 +36,28 @@ public class US06_DeanShouldBeAbleToCreateViceDeanAPI {
 
     @When("Create the Payload for Vice Dean Save as Dean.")
     public void createThePayloadForViceDeanSaveAsDean() {
-        payload = new ViceDeanPostPojo("1990-12-15", "Konya", "Male", "Furkan", "F123456", "154-987-9658", "124-58-3214", "Yanik", "Fu6548");
+        payload = new ViceDeanPostPojo(
+                "1990-11-15",
+                "mardin",
+                "MALE",
+                "furkan",
+                "Fu123456",
+                "154-987-9666",
+                "124-58-3222",
+                "yanik",
+                "Fur6548");
     }
 
     @Then("Dean sends a POST request for adding a Vice Dean and receives a response.")
     public void deanSendsAPOSTRequestForAddingAViceDeanAndReceivesAResponse() {
-        response = given().body(spec).when().post("{first}/{second}");
-        actualData = response.as(ResponseViceDeanTPojo.class);
+        response =  given(spec).body(payload).when().post("{first}/{second}");
+        actualData = response.as(ViceDeanResponsePojo.class);
 
     }
 
-    @And("Verify that the Status Code is {int}.")
+    @And("Verify that the Status Code Is {int}.")
     public void verifyThatTheStatusCodeIs(int statusCode) {
-        assertEquals(statusCode, response.statusCode());
+        assertEquals(statusCode,response.statusCode());
 
     }
 
@@ -64,37 +73,43 @@ public class US06_DeanShouldBeAbleToCreateViceDeanAPI {
         assertEquals(payload.getUsername(), actualData.getObject().getUsername());
     }
 
-
+//---------------------------SCENARIO 2 ----------------------------------------------------------------------
     @Given("Login as Dean and set the URL for Vice Dean Views.")
     public void loginAsDeanAndSetTheURLForViceDeanUPDATE() {
+        setUp("Team05Dean", "Project14");
+        spec.pathParams("first", "vicedean",
+                "second", "getAll");
+        response = given(spec).when().get("{first}/{second}");
+
         JsonPath json = response.jsonPath();
-        userId = json.getInt("find{it.username=='team5Ali'}.userId");
+        userId = json.getInt("find{it.username=='Fur6548'}.userId");
 
         setUp("Team05Dean", "Project14");
         spec.pathParams("first", "vicedean",
-                "second", "getViceDeanById", "third", userId);
+               "second", "getViceDeanById", "third", userId);
+
     }
 
     @And("Create expected Data for Views Vice Dean")
     public void creatExpectedDataForViewsViceDean() {
-        expectedData = new ObjectPojo(
-                3496,
-                "team5Ali",
-                "ali",
-                "kurt",
-                "2000-11-14",
-                "148-85-9784",
-                "kenya",
-                "147-548-4879",
-                "Male"
+        expectedData = new ViceDeanObjectPojo(
+                userId,
+                "Fur6548",
+                "furkan",
+                "yanik",
+                "1990-11-15",
+                "124-58-3222",
+                "mardin",
+                "154-987-9666",
+                "MALE"
         );
 
     }
 
     @When("Dean sends a POST request for Views a Vice Dean and receives a response.")
     public void deanSendsAPOSTRequestForViewsAViceDeanAndReceivesAResponse() {
-        response = given().body(spec).when().post("{first}/{second}/{third}");
-        actualData = response.as(ResponseViceDeanTPojo.class);
+        response = given(spec).when().get("{first}/{second}/{third}");
+        actualData = response.as(ViceDeanResponsePojo.class);
     }
 
     @And("Verify that the response body for Vice Dean Views.")
@@ -110,11 +125,9 @@ public class US06_DeanShouldBeAbleToCreateViceDeanAPI {
         assertEquals(expectedData.getUsername(), actualData.getObject().getUsername());
     }
 
-
+//-------------------------------------- SCENARIO 3 -----------------------------------------------------------
     @Given("Login as Dean and set the URL for Vice Dean Delete.")
     public void loginAsDeanAndSetTheURLForViceDeanDelete() {
-        JsonPath json = response.jsonPath();
-        userId = json.getInt("find{it.username=='team5Ali'}.userId");
 
         setUp("Team05Dean", "Project14");
         spec.pathParams("first", "vicedean",
@@ -123,15 +136,15 @@ public class US06_DeanShouldBeAbleToCreateViceDeanAPI {
 
     @And("Dean sends a POST request for Delete a Vice Dean and receives a response.")
     public void deanSendsAPOSTRequestForDeleteAViceDeanAndReceivesAResponse() {
-        response = given().body(spec).when().post("{first}/{second}/{third}");
-        actualData = response.as(ResponseViceDeanTPojo.class);
+        response = given(spec).when().delete("{first}/{second}/{third}");
+
     }
 
 
     @And("Verify that the response body for Vice Dean Delete.")
     public void VerifythattheresponsebodyforViceDeanDelete() {
         JSONObject expectedDeleteResponseBody = new JSONObject();
-        expectedDeleteResponseBody.put("message", "Vice Dean Deleted");
+        expectedDeleteResponseBody.put("message", "Vice dean Deleted");
         expectedDeleteResponseBody.put("httpStatus", "OK");
 
         //Assertions

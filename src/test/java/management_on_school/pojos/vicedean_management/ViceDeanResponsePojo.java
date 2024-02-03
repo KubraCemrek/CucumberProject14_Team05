@@ -1,7 +1,9 @@
 package management_on_school.pojos.vicedean_management;
 
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.io.Serializable;
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ViceDeanResponsePojo implements Serializable {
 	private ViceDeanObjectPojo object;
 	private String message;
