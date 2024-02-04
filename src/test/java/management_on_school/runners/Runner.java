@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources",
         glue = {"management_on_school/stepDefinitions", "management_on_school/hooks"},
         dryRun = false,
-        tags = "@API and @US10",
+        tags = "@API_US17_US18",
         monochrome = true
 
 )
